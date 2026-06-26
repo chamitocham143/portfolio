@@ -4,6 +4,7 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 
+import { useEffect} from "react";
 import "./App.css";
 
 import {
@@ -31,6 +32,54 @@ import {
 import { BsDatabaseFill } from "react-icons/bs";
 
 function App() {
+
+  const [activeSection, setActiveSection] = useState("home");
+
+useEffect(() => {
+  const revealElements = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.15,
+    }
+  );
+
+  revealElements.forEach((element) => observer.observe(element));
+
+  const sections = document.querySelectorAll("section[id]");
+
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setActiveSection(entry.target.id);
+      }
+    });
+  },
+  {
+    threshold: 0.35,
+  }
+);
+
+sections.forEach((section) => sectionObserver.observe(section));
+
+return () => {
+  observer.disconnect();
+  sectionObserver.disconnect();
+};  
+
+}, []);
+
+
+
   return (
     <main>
       <nav className="navbar">
@@ -38,32 +87,48 @@ function App() {
     RP
   </div>
   <div className="nav-links">
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </div>
+  <a className={activeSection === "home" ? "active" : ""} href="#home">
+    Home
+  </a>
+
+  <a className={activeSection === "about" ? "active" : ""} href="#about">
+    About
+  </a>
+
+  <a className={activeSection === "skills" ? "active" : ""} href="#skills">
+    Skills
+  </a>
+
+  <a className={activeSection === "projects" ? "active" : ""} href="#projects">
+    Projects
+  </a>
+
+  <a className={activeSection === "contact" ? "active" : ""} href="#contact">
+    Contact
+  </a>
+</div>
 </nav>
 
-     <section className="hero">
+     <section id="home" className="hero">
   <div className="hero-content">
-    <p className="badge">👋 Hello, I'm Reycham Pana</p>
 
-    <h1>
-      Web Applications Developer building reliable, modern, and user-friendly apps.
+    <p className="badge fade-up">👋 Hello, I'm Reycham Pana</p>
+
+    <h1 className="fade-up delay-1">
+        Web Applications Developer building reliable, modern, and user-friendly apps.
     </h1>
 
-    <p className="hero-description">
-      I specialize in creating responsive web applications using React,
-      JavaScript, Firebase, Firestore, and modern UI design. I enjoy building
-      practical apps that solve real problems.
-    </p>
-
+      <p className="hero-description fade-up delay-2">
+          I specialize in creating responsive web applications using React,
+          JavaScript, Firebase, Firestore, and modern UI design. I enjoy building
+          practical apps that solve real problems.
+      </p>
+      
    <p className="availability">
   🟢 Available for web application projects
 </p>
 
-<div className="buttons">
+<div className="buttons fade-up delay-3">
   <a href="#projects" className="btn primary">View My Work</a>
   <a href="/resume.pdf" className="btn secondary" download>
     Download Resume
@@ -83,7 +148,7 @@ function App() {
   ↓ Scroll
 </a>
 
-    <div className="hero-stats">
+    <div className="hero-stats fade-up delay-3">
       <div>
         <strong>React</strong>
         <span>Frontend</span>
@@ -102,7 +167,7 @@ function App() {
   </div>
 </section>
 
-      <section id="about" className="section about-section">
+      <section id="about" className="section about-section reveal">
   <div className="about-grid">
     <div className="about-card">
       <div className="about-avatar">RP</div>
@@ -156,7 +221,7 @@ function App() {
   </div>
 </section>
 
-      <section className="section process-section">
+      <section className="section process-section reveal">
 
   <p className="section-kicker">
     How I Build
@@ -213,7 +278,7 @@ function App() {
 </section>
 
 
-<section id="skills" className="section tech-section">
+<section id="skills" className="section tech-section reveal">
   <p className="section-kicker">Featured Technologies</p>
 
   <h2>Tools I Use to Build Web Applications</h2>
@@ -269,7 +334,7 @@ function App() {
 </section>
 
 
-      <section id="projects" className="section projects-section">
+      <section id="projects" className="section projects-section reveal">
   <p className="section-kicker">Featured Project</p>
   <h2>Bantay Budget</h2>
 
@@ -279,7 +344,7 @@ function App() {
     real-time data.
   </p>
 
-  <div className="showcase">
+  <div className="showcase reveal">
     <div className="phone-mockup main-phone">
       <img src="/bantay-dashboard-dark.png" alt="Bantay Budget dashboard dark mode" />
     </div>
@@ -335,7 +400,9 @@ function App() {
     </div>
   </div>
 
-  <section className="project-highlights">
+  </section>
+
+  <section className="project-highlights reveal">
 
   <div className="highlight-card">
     <h3>7+</h3>
@@ -359,7 +426,7 @@ function App() {
 
 </section>
 
-<div className="screenshot-gallery">
+<div className="screenshot-gallery reveal">
   <div className="gallery-card">
     <img src="/bantay-login.png" alt="Bantay Budget login screen" />
     <span>Login</span>
@@ -441,8 +508,6 @@ function App() {
   </div>
 </section>
 
-
-</section>
 
       <section id="skills" className="section">
         <h2>Skills</h2>
