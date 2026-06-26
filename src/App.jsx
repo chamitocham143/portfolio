@@ -6,90 +6,443 @@ import './App.css'
 
 import "./App.css";
 
+import {
+  FaReact,
+  FaGithub,
+  FaMobileAlt,
+  FaFire,
+  FaCode,
+  FaRocket,
+  FaPalette,
+  FaLightbulb,
+  FaLock,
+  FaBell,
+  FaMoon, 
+  FaChartBar,
+  FaSyncAlt,
+} from "react-icons/fa";
+
+import {
+  SiFirebase,
+  SiJavascript,
+  SiPwa,
+} from "react-icons/si";
+
+import { BsDatabaseFill } from "react-icons/bs";
+
 function App() {
   return (
     <main>
       <nav className="navbar">
-        <h2>Reycham Pana</h2>
+  <div className="nav-logo">
+    RP
+  </div>
+  <div className="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+     <section className="hero">
+  <div className="hero-content">
+    <p className="badge">👋 Hello, I'm Reycham Pana</p>
+
+    <h1>
+      Web Applications Developer building reliable, modern, and user-friendly apps.
+    </h1>
+
+    <p className="hero-description">
+      I specialize in creating responsive web applications using React,
+      JavaScript, Firebase, Firestore, and modern UI design. I enjoy building
+      practical apps that solve real problems.
+    </p>
+
+   <p className="availability">
+  🟢 Available for web application projects
+</p>
+
+<div className="buttons">
+  <a href="#projects" className="btn primary">View My Work</a>
+  <a href="/resume.pdf" className="btn secondary" download>
+    Download Resume
+  </a>
+</div>
+
+<div className="hero-socials">
+  <a href="https://github.com/YOUR_USERNAME" target="_blank">
+    GitHub
+  </a>
+  <a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank">
+    LinkedIn
+  </a>
+</div>
+
+<a href="#about" className="scroll-down">
+  ↓ Scroll
+</a>
+
+    <div className="hero-stats">
+      <div>
+        <strong>React</strong>
+        <span>Frontend</span>
+      </div>
+
+      <div>
+        <strong>Firebase</strong>
+        <span>Backend</span>
+      </div>
+
+      <div>
+        <strong>PWA</strong>
+        <span>Mobile Ready</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section id="about" className="section about-section">
+  <div className="about-grid">
+    <div className="about-card">
+      <div className="about-avatar">RP</div>
+
+      <h2>About Me</h2>
+
+      <p>
+        Hi, I'm Reycham. I build modern web applications focused on clean
+        design, reliable functionality, and smooth user experiences.
+      </p>
+
+      <p>
+        I enjoy turning ideas into polished products using React, JavaScript,
+        Firebase, Firestore, and mobile-first design principles.
+      </p>
+    </div>
+
+    <div className="about-details">
+      <div className="about-detail">
+        <span><FaReact /></span>
         <div>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
+          <h3>Frontend Development</h3>
+          <p>Building responsive and interactive React interfaces.</p>
         </div>
-      </nav>
+      </div>
 
-      <section className="hero">
-        <p className="badge">Web Applications Developer</p>
-        <h1>Building clean, reliable, and mobile-friendly web applications.</h1>
-        <p>
-          I create responsive web apps using React, JavaScript, Firebase,
-          Firestore, and modern UI design.
-        </p>
-
-        <div className="buttons">
-          <a href="#projects" className="btn primary">View Projects</a>
-          <a href="#contact" className="btn secondary">Contact Me</a>
+      <div className="about-detail">
+        <span><SiFirebase /></span>
+        <div>
+          <h3>Firebase Applications</h3>
+          <p>Creating apps with authentication, Firestore, and real-time data.</p>
         </div>
-      </section>
+      </div>
 
-      <section id="about" className="section">
-        <h2>About Me</h2>
-        <p>
-          I am a Web Applications Developer focused on building practical,
-          user-friendly, and reliable applications. I enjoy creating apps that
-          solve real problems with clean interfaces and smooth user experiences.
-        </p>
-      </section>
-
-      <section id="projects" className="section">
-        <h2>Featured Projects</h2>
-
-        <div className="project featured">
-          <div>
-            <p className="badge">Featured Project</p>
-            <h3>Bantay Budget</h3>
-            <p>
-              A Firebase-powered monthly expenses tracker PWA with real-time
-              data, authentication, recurring expenses, notifications, dark mode,
-              and mobile-first design.
-            </p>
-
-            <div className="tags">
-              <span>JavaScript</span>
-              <span>Firebase</span>
-              <span>Firestore</span>
-              <span>PWA</span>
-              <span>Responsive UI</span>
-            </div>
-          </div>
+      <div className="about-detail">
+        <span><SiPwa /></span>
+        <div>
+          <h3>Mobile-First Design</h3>
+          <p>Designing smooth experiences for mobile, tablet, and desktop.</p>
         </div>
+      </div>
 
-        <div className="grid">
-          <div className="card">
-            <h3>Recurring Expenses System</h3>
-            <p>
-              Automated recurring dues with pending, paid, and on-hold statuses.
-            </p>
-          </div>
-
-          <div className="card">
-            <h3>Portfolio Website</h3>
-            <p>
-              A modern React portfolio built to showcase projects, skills, and
-              professional experience.
-            </p>
-          </div>
-
-          <div className="card">
-            <h3>Firebase Auth App</h3>
-            <p>
-              Authentication flow with login, registration, password reset, and
-              email verification.
-            </p>
-          </div>
+      <div className="about-detail">
+        <span><FaRocket /></span>
+        <div>
+          <h3>Product Thinking</h3>
+          <p>Focusing on features that are practical, useful, and polished.</p>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section className="section process-section">
+
+  <p className="section-kicker">
+    How I Build
+  </p>
+
+  <h2>My Development Process</h2>
+
+  <p className="section-intro">
+    Every application starts with understanding the problem,
+    designing a clean solution, and refining it through
+    continuous improvements.
+  </p>
+
+  <div className="process-grid">
+
+    <div className="process-card">
+      <div className="process-icon"><FaLightbulb /></div>
+      <h3>Plan</h3>
+      <p>
+        Understand the problem, gather requirements,
+        and design an intuitive user experience.
+      </p>
+    </div>
+
+    <div className="process-card">
+      <div className="process-icon"><FaPalette /></div>
+      <h3>Design</h3>
+      <p>
+        Create responsive layouts that are clean,
+        modern, and easy to use.
+      </p>
+    </div>
+
+    <div className="process-card">
+      <div className="process-icon"><FaCode /></div>
+      <h3>Develop</h3>
+      <p>
+        Build scalable applications using React,
+        Firebase, JavaScript, and modern web technologies.
+      </p>
+    </div>
+
+    <div className="process-card">
+      <div className="process-icon"><FaRocket /></div>
+      <h3>Improve</h3>
+      <p>
+        Test, optimize, refine, and continuously
+        improve every feature.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="skills" className="section tech-section">
+  <p className="section-kicker">Featured Technologies</p>
+
+  <h2>Tools I Use to Build Web Applications</h2>
+
+  <p className="section-intro">
+    These are the technologies I use to design, build, deploy, and improve
+    modern web applications.
+  </p>
+
+  <div className="tech-grid">
+    <div className="tech-card">
+      <div className="tech-icon"><FaReact /></div>
+      <h3>React</h3>
+      <p>Component-based frontend development for responsive interfaces.</p>
+      <span>Used in: Portfolio Website</span>
+    </div>
+
+    <div className="tech-card">
+      <div className="tech-icon"><SiFirebase /></div>
+      <h3>Firebase</h3>
+      <p>Authentication, hosting, and backend services for web apps.</p>
+      <span>Used in: Bantay Budget</span>
+    </div>
+
+    <div className="tech-card">
+      <div className="tech-icon"><BsDatabaseFill /></div>
+      <h3>Firestore</h3>
+      <p>Real-time database for expenses, inflows, and recurring dues.</p>
+      <span>Used in: Bantay Budget</span>
+    </div>
+
+    <div className="tech-card">
+      <div className="tech-icon"><SiJavascript /></div>
+      <h3>JavaScript</h3>
+      <p>Application logic, UI interactions, automations, and data handling.</p>
+      <span>Used in: Bantay Budget</span>
+    </div>
+
+    <div className="tech-card">
+      <div className="tech-icon"><SiPwa /></div>
+      <h3>PWA</h3>
+      <p>Installable mobile-first app experience with responsive design.</p>
+      <span>Used in: Bantay Budget</span>
+    </div>
+
+    <div className="tech-card">
+      <div className="tech-icon"><FaGithub /></div>
+      <h3>GitHub</h3>
+      <p>Version control, project history, and code collaboration.</p>
+      <span>Used in: All Projects</span>
+    </div>
+  </div>
+</section>
+
+
+      <section id="projects" className="section projects-section">
+  <p className="section-kicker">Featured Project</p>
+  <h2>Bantay Budget</h2>
+
+  <p className="section-intro">
+    A mobile-first Progressive Web App for managing income, expenses,
+    recurring dues, notifications, app lock security, and Firebase-powered
+    real-time data.
+  </p>
+
+  <div className="showcase">
+    <div className="phone-mockup main-phone">
+      <img src="/bantay-dashboard-dark.png" alt="Bantay Budget dashboard dark mode" />
+    </div>
+
+    <div className="showcase-content">
+      <h3>Smart Personal Finance for Everyone</h3>
+      <p>
+        Bantay Budget is a Progressive Web App built with React and Firebase 
+        that helps users manage income, expenses, recurring bills, notifications, 
+        and financial planning through a clean, mobile-first experience.
+      </p>
+
+      <div className="feature-list">
+        <span>
+          <SiFirebase />
+            Firebase Authentication
+        </span>
+        <span>
+        <BsDatabaseFill />
+        Firestore Database
+      </span>
+        <span>🔁 Recurring Expenses</span>
+        <span>
+        <FaBell />
+          Smart Notifications
+        </span>
+        <span>
+          <FaLock />
+          App Lock
+        </span>
+        <span>
+        <FaMoon />
+        Dark Mode
+        </span>
+        <span>
+        <SiPwa />
+        Progressive Web App
+        </span>
+        <span>
+        <FaChartBar />
+        Dashboard UI
+        </span>
+          </div>
+
+      <div className="project-buttons">
+        <a href="https://bantaybudget.fyi" target="_blank" className="btn primary">
+          Live Demo
+        </a>
+        <a href="#" target="_blank" className="btn dark-btn">
+          GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <section className="project-highlights">
+
+  <div className="highlight-card">
+    <h3>7+</h3>
+    <p>Core Features</p>
+  </div>
+
+  <div className="highlight-card">
+    <h3>Firebase</h3>
+    <p>Authentication & Firestore</p>
+  </div>
+
+  <div className="highlight-card">
+    <h3>PWA</h3>
+    <p>Installable Mobile App</p>
+  </div>
+
+  <div className="highlight-card">
+    <h3>100%</h3>
+    <p>Responsive Design</p>
+  </div>
+
+</section>
+
+<div className="screenshot-gallery">
+  <div className="gallery-card">
+    <img src="/bantay-login.png" alt="Bantay Budget login screen" />
+    <span>Login</span>
+  </div>
+
+  <div className="gallery-card">
+    <img src="/bantay-dashboard-light.png" alt="Bantay Budget light dashboard" />
+    <span>Light Dashboard</span>
+  </div>
+
+  <div className="gallery-card">
+    <img src="/bantay-recurring.png" alt="Bantay Budget recurring expenses" />
+    <span>Recurring</span>
+  </div>
+
+  <div className="gallery-card">
+    <img src="/bantay-notifications.png" alt="Bantay Budget notifications" />
+    <span>Notifications</span>
+  </div>
+</div>
+
+
+
+<section className="section projects-list-section">
+  <p className="section-kicker">More Work</p>
+
+  <h2>Featured Projects</h2>
+
+  <p className="section-intro">
+    A collection of web applications and product ideas I have built,
+    improved, or am currently developing.
+  </p>
+
+  <div className="projects-list-grid">
+    <div className="project-list-card">
+      <span className="project-status live">🟢 Production</span>
+      <h3>Bantay Budget</h3>
+      <p>
+        A Firebase-powered personal finance PWA for managing income,
+        expenses, recurring dues, notifications, and app security.
+      </p>
+
+      <div className="project-stack">
+        <span>Firebase</span>
+        <span>Firestore</span>
+        <span>PWA</span>
+      </div>
+    </div>
+
+    <div className="project-list-card">
+      <span className="project-status live">🟢 Live</span>
+      <h3>React Portfolio Website</h3>
+      <p>
+        A modern personal portfolio built with React to showcase projects,
+        technologies, development process, and professional branding.
+      </p>
+
+      <div className="project-stack">
+        <span>React</span>
+        <span>CSS</span>
+        <span>GitHub</span>
+      </div>
+    </div>
+
+    <div className="project-list-card">
+      <span className="project-status progress">🟡 In Progress</span>
+      <h3>Budget Analytics Dashboard</h3>
+      <p>
+        A planned dashboard enhancement for visualizing spending trends,
+        monthly comparisons, and financial insights.
+      </p>
+
+      <div className="project-stack">
+        <span>Charts</span>
+        <span>Analytics</span>
+        <span>UI/UX</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</section>
 
       <section id="skills" className="section">
         <h2>Skills</h2>
@@ -121,19 +474,45 @@ function App() {
         </div>
       </section>
 
-      <section id="contact" className="section contact">
-        <h2>Let’s Work Together</h2>
-        <p>
-          Interested in working together or learning more about my projects?
-        </p>
+      <section id="contact" className="section contact-section">
+  <div className="contact-card">
+    <p className="section-kicker">Contact</p>
 
-        <a href="mailto:chamzbahandi@gmail.com" className="btn primary">
-          Email Me
-        </a>
-      </section>
+    <h2>Let’s Build Something Great Together</h2>
+
+    <p>
+      Whether you need a web application, a Firebase-powered solution,
+      or want to connect about software development, I’d love to hear from you.
+    </p>
+
+    <div className="contact-actions">
+      <a href="mailto:chamzbahandi@gmail.com" className="btn primary">
+        Email Me
+      </a>
+
+      <a href="https://github.com/YOUR_USERNAME" target="_blank" className="btn dark-btn">
+        GitHub
+      </a>
+
+      <a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank" className="btn dark-btn">
+        LinkedIn
+      </a>
+
+      <a href="/resume.pdf" className="btn secondary-green" download>
+        Download Résumé
+      </a>
+    </div>
+  </div>
+</section>
 
 <footer>
-  © {new Date().getFullYear()} Reycham Pana. All rights reserved.
+  <p>
+    © {new Date().getFullYear()} Reycham Pana. All rights reserved.
+  </p>
+
+  <p className="footer-version">
+    Portfolio v1.0.0
+  </p>
 </footer>
       
     </main>
