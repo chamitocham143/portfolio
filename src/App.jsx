@@ -1,26 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
-
-import { useEffect} from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 import {
   FaReact,
   FaGithub,
-  FaMobileAlt,
-  FaFire,
   FaCode,
   FaRocket,
   FaPalette,
   FaLightbulb,
   FaLock,
   FaBell,
-  FaMoon, 
+  FaMoon,
   FaChartBar,
-  FaSyncAlt,
+  FaBars,
+  FaTimes,
+  FaHome,
+  FaUser,
+  FaBriefcase,
+  FaEnvelope,
+  FaDownload,
+  FaLinkedin,
 } from "react-icons/fa";
 
 import {
@@ -29,87 +28,139 @@ import {
   SiPwa,
 } from "react-icons/si";
 
+import { FaRotate } from "react-icons/fa6";
 import { BsDatabaseFill } from "react-icons/bs";
 
 function App() {
-
   const [activeSection, setActiveSection] = useState("home");
+  const [isLoading, setIsLoading] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-useEffect(() => {
-  const revealElements = document.querySelectorAll(".reveal");
+  useEffect(() => {
+    const revealElements = document.querySelectorAll(".reveal");
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.15,
-    }
-  );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.05, rootMargin: "0px 0px -10% 0px", }
+    );
 
-  revealElements.forEach((element) => observer.observe(element));
+    revealElements.forEach((element) => observer.observe(element));
 
-  const sections = document.querySelectorAll("section[id]");
+    const sections = document.querySelectorAll("section[id]");
 
-const sectionObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        setActiveSection(entry.target.id);
-      }
-    });
-  },
-  {
-    threshold: 0.35,
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
+
+    sections.forEach((section) => sectionObserver.observe(section));
+
+    return () => {
+      observer.disconnect();
+      sectionObserver.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1200);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+  if (menuOpen) {
+    document.body.style.overflow = "hidden";
+    document.body.classList.remove("menu-open");
+  
+  } else {
+    document.body.style.overflow = "";
   }
-);
 
-sections.forEach((section) => sectionObserver.observe(section));
-
-return () => {
-  observer.disconnect();
-  sectionObserver.disconnect();
-};  
-
-}, []);
-
-
+  return () => {
+    document.body.style.overflow = "";
+    document.body.classList.remove("menu-open");
+  };
+}, [menuOpen]);
 
   return (
     <main>
-      <nav className="navbar">
-  <div className="nav-logo">
-    RP
-  </div>
+      {isLoading && (
+        <div className="loader-screen">
+          <div className="loader-logo">RP</div>
+          <h1>Reycham Pana</h1>
+          <p>Web Applications Developer</p>
+          <div className="loader-line"></div>
+        </div>
+      )}
+
+     <nav className="navbar"> 
+ <button className="mobile-menu-btn" onClick={() => setMenuOpen(true)}>
+    <FaBars />
+  </button>
+
+  <a href="#home" className="nav-brand" onClick={() => setMenuOpen(false)}>
+    <div className="nav-logo">RP</div>
+  </a>
+
   <div className="nav-links">
-  <a className={activeSection === "home" ? "active" : ""} href="#home">
-    Home
-  </a>
+    <a className={activeSection === "home" ? "active" : ""} href="#home">Home</a>
+    <a className={activeSection === "about" ? "active" : ""} href="#about">About</a>
+    <a className={activeSection === "skills" ? "active" : ""} href="#skills">Skills</a>
+    <a className={activeSection === "projects" ? "active" : ""} href="#projects">Projects</a>
+    <a className={activeSection === "contact" ? "active" : ""} href="#contact">Contact</a>
+  </div>
 
-  <a className={activeSection === "about" ? "active" : ""} href="#about">
-    About
-  </a>
-
-  <a className={activeSection === "skills" ? "active" : ""} href="#skills">
-    Skills
-  </a>
-
-  <a className={activeSection === "projects" ? "active" : ""} href="#projects">
-    Projects
-  </a>
-
-  <a className={activeSection === "contact" ? "active" : ""} href="#contact">
-    Contact
-  </a>
-</div>
 </nav>
 
+<div className={`mobile-glass-menu ${menuOpen ? "open" : ""}`}>
+  <button className="menu-close" onClick={() => setMenuOpen(false)}>
+    <FaTimes />
+  </button>
+
+  <div className="mobile-menu-profile">
+    <div className="nav-logo big">RP</div>
+    <h3>Reycham Pana</h3>
+    <p>Web Applications Developer</p>
+  </div>
+
+  <div className="mobile-menu-links">
+    <a href="#home" onClick={() => setMenuOpen(false)}><FaHome /> Home</a>
+    <a href="#about" onClick={() => setMenuOpen(false)}><FaUser /> About</a>
+    <a href="#skills" onClick={() => setMenuOpen(false)}><FaCode /> Skills</a>
+    <a href="#projects" onClick={() => setMenuOpen(false)}><FaBriefcase /> Projects</a>
+    <a href="#contact" onClick={() => setMenuOpen(false)}><FaEnvelope /> Contact</a>
+  </div>
+
+  <div className="mobile-menu-extra">
+    <a href="/resume.pdf" download><FaDownload /> Download Resume</a>
+    <a href="https://github.com/YOUR_USERNAME" target="_blank"><FaGithub /> GitHub</a>
+    <a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank"><FaLinkedin /> LinkedIn</a>
+  </div>
+</div>
+
      <section id="home" className="hero">
+    <div className="hero-blobs">
+    <span className="blob blob-1"></span>
+    <span className="blob blob-2"></span>
+    <span className="blob blob-3"></span>
+  </div>
+
   <div className="hero-content">
 
     <p className="badge fade-up">👋 Hello, I'm Reycham Pana</p>
@@ -366,7 +417,10 @@ return () => {
         <BsDatabaseFill />
         Firestore Database
       </span>
-        <span>🔁 Recurring Expenses</span>
+        <span>
+      <FaRotate />
+      Recurring Expenses
+      </span>
         <span>
         <FaBell />
           Smart Notifications
