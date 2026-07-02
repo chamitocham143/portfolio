@@ -20,6 +20,11 @@ import {
   FaEnvelope,
   FaDownload,
   FaLinkedin,
+  FaShieldAlt,
+  FaMobileAlt,
+  FaDesktop,
+  FaFileDownload,
+  FaTachometerAlt
 } from "react-icons/fa";
 
 import {
@@ -148,7 +153,6 @@ function App() {
   </div>
 
   <div className="mobile-menu-extra">
-    <a href="/resume.pdf" download><FaDownload /> Download Resume</a>
     <a href="https://github.com/YOUR_USERNAME" target="_blank"><FaGithub /> GitHub</a>
     <a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank"><FaLinkedin /> LinkedIn</a>
   </div>
@@ -170,7 +174,7 @@ function App() {
     </h1>
 
       <p className="hero-description fade-up delay-2">
-          I specialize in creating responsive web applications using React,
+          I specialize in creating responsive web applications using React, 
           JavaScript, Firebase, Firestore, and modern UI design. I enjoy building
           practical apps that solve real problems.
       </p>
@@ -200,21 +204,24 @@ function App() {
 </a>
 
     <div className="hero-stats fade-up delay-3">
-      <div>
-        <strong>React</strong>
-        <span>Frontend</span>
-      </div>
-
-      <div>
+    
+      <div className="hero-stat">
         <strong>Firebase</strong>
         <span>Backend</span>
       </div>
 
-      <div>
+      <div className="hero-stat">
+        <strong>React</strong>
+        <span>Frontend</span>
+      </div>
+
+      <div className="hero-stat">
         <strong>PWA</strong>
         <span>Mobile Ready</span>
       </div>
+
     </div>
+
   </div>
 </section>
 
@@ -286,45 +293,53 @@ function App() {
     continuous improvements.
   </p>
 
-  <div className="process-grid">
+  <div className="process-grid compact-process">
 
-    <div className="process-card">
-      <div className="process-icon"><FaLightbulb /></div>
+  <div className="process-card">
+    <span className="process-number">01</span>
+    <div className="process-icon"><FaLightbulb /></div>
+    <div>
+      <div className="process-content">
       <h3>Plan</h3>
-      <p>
-        Understand the problem, gather requirements,
-        and design an intuitive user experience.
-      </p>
-    </div>
+      <p>Understand the problem, gather requirements, and design the right solution.</p>
 
-    <div className="process-card">
-      <div className="process-icon"><FaPalette /></div>
-      <h3>Design</h3>
-      <p>
-        Create responsive layouts that are clean,
-        modern, and easy to use.
-      </p>
+      </div>
     </div>
-
-    <div className="process-card">
-      <div className="process-icon"><FaCode /></div>
-      <h3>Develop</h3>
-      <p>
-        Build scalable applications using React,
-        Firebase, JavaScript, and modern web technologies.
-      </p>
-    </div>
-
-    <div className="process-card">
-      <div className="process-icon"><FaRocket /></div>
-      <h3>Improve</h3>
-      <p>
-        Test, optimize, refine, and continuously
-        improve every feature.
-      </p>
-    </div>
-
   </div>
+
+  <div className="process-card">
+    <span className="process-number">02</span>
+    <div className="process-icon"><FaPalette /></div>
+    <div>
+      <div className="process-content"> 
+      <h3>Design</h3>
+      <p>Create clean, responsive layouts that feel modern and easy to use.</p>
+      </div>
+    </div>
+  </div>
+
+  <div className="process-card">
+    <span className="process-number">03</span>
+    <div className="process-icon"><FaCode /></div>
+    <div>
+      <div className="process-content">
+         <h3>Develop</h3>
+      <p>Build scalable applications using React, Firebase, and modern web tools.</p>
+      </div>
+    </div>
+  </div>
+
+  <div className="process-card">
+    <span className="process-number">04</span>
+    <div className="process-icon"><FaRocket /></div>
+    <div>
+      <div className="process-content">
+        <h3>Improve</h3>
+      <p>Test, optimize, refine, and continuously improve the user experience.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 </section>
 
@@ -340,48 +355,51 @@ function App() {
   </p>
 
   <div className="tech-grid">
-    <div className="tech-card">
-      <div className="tech-icon"><FaReact /></div>
-      <h3>React</h3>
-      <p>Component-based frontend development for responsive interfaces.</p>
-      <span>Used in: Portfolio Website</span>
-    </div>
 
-    <div className="tech-card">
-      <div className="tech-icon"><SiFirebase /></div>
-      <h3>Firebase</h3>
-      <p>Authentication, hosting, and backend services for web apps.</p>
-      <span>Used in: Bantay Budget</span>
-    </div>
-
-    <div className="tech-card">
-      <div className="tech-icon"><BsDatabaseFill /></div>
-      <h3>Firestore</h3>
-      <p>Real-time database for expenses, inflows, and recurring dues.</p>
-      <span>Used in: Bantay Budget</span>
-    </div>
-
-    <div className="tech-card">
-      <div className="tech-icon"><SiJavascript /></div>
-      <h3>JavaScript</h3>
-      <p>Application logic, UI interactions, automations, and data handling.</p>
-      <span>Used in: Bantay Budget</span>
-    </div>
-
-    <div className="tech-card">
-      <div className="tech-icon"><SiPwa /></div>
-      <h3>PWA</h3>
-      <p>Installable mobile-first app experience with responsive design.</p>
-      <span>Used in: Bantay Budget</span>
-    </div>
-
-    <div className="tech-card">
-      <div className="tech-icon"><FaGithub /></div>
-      <h3>GitHub</h3>
-      <p>Version control, project history, and code collaboration.</p>
-      <span>Used in: All Projects</span>
-    </div>
+  <div className="tech-card tech-react">
+    <FaReact className="tech-bg-icon" />
+    <h3>React</h3>
+    <p>Component-based frontend development for responsive interfaces.</p>
+    <span>↗ Used in: <strong>Portfolio Website</strong></span>
   </div>
+
+  <div className="tech-card tech-firebase">
+    <SiFirebase className="tech-bg-icon" />
+    <h3>Firebase</h3>
+    <p>Authentication, hosting, and backend services for web apps.</p>
+    <span>↗ Used in: <strong>Bantay Budget</strong></span>
+  </div>
+
+  <div className="tech-card tech-firestore">
+    <BsDatabaseFill className="tech-bg-icon" />
+    <h3>Firestore</h3>
+    <p>Real-time database for expenses, inflows, and recurring dues.</p>
+    <span>↗ Used in: <strong>Bantay Budget</strong></span>
+  </div>
+
+  <div className="tech-card tech-javascript">
+    <SiJavascript className="tech-bg-icon" />
+    <h3>JavaScript</h3>
+    <p>Application logic, UI interactions, automations, and data handling.</p>
+    <span>↗ Used in: <strong>Bantay Budget</strong></span>
+  </div>
+
+  <div className="tech-card tech-pwa">
+    <SiPwa className="tech-bg-icon" />
+    <h3>PWA</h3>
+    <p>Installable mobile-first app experience with responsive design.</p>
+    <span>↗ Used in: <strong>Bantay Budget</strong></span>
+  </div>
+
+  <div className="tech-card tech-github">
+    <FaGithub className="tech-bg-icon" />
+    <h3>GitHub</h3>
+    <p>Version control, project history, and code collaboration.</p>
+    <span>↗ Used in: <strong>All Projects</strong></span>
+  </div>
+
+</div>
+  
 </section>
 
 
@@ -458,25 +476,55 @@ function App() {
 
   <section className="project-highlights reveal">
 
-  <div className="highlight-card">
-    <h3>7+</h3>
-    <p>Core Features</p>
+  <div className="features-header">
+  <span className="live-badge">
+    <span></span>
+    Live Demo
+  </span>
+
+  <h3>7+</h3>
+  <p>Core Features</p>
+</div>
+
+<div className="features-grid">
+
+  <div className="feature-card">
+    <FaShieldAlt className="feature-icon" />
+    <FaShieldAlt className="feature-bg-icon" />
+    <div>
+      <h3>Firebase</h3>
+      <p>Authentication & Firestore database for secure and real-time data management.</p>
+    </div>
   </div>
 
-  <div className="highlight-card">
-    <h3>Firebase</h3>
-    <p>Authentication & Firestore</p>
+  <div className="feature-card">
+    <FaMobileAlt className="feature-icon" />
+    <SiPwa className="feature-bg-icon" />
+    <div>
+      <h3>PWA</h3>
+      <p>Installable mobile app experience with offline support and fast performance.</p>
+    </div>
   </div>
 
-  <div className="highlight-card">
-    <h3>PWA</h3>
-    <p>Installable Mobile App</p>
+  <div className="feature-card">
+    <FaDesktop className="feature-icon" />
+    <FaDesktop className="feature-bg-icon" />
+    <div>
+      <h3>100%</h3>
+      <p>Fully responsive design that works perfectly on all devices and screen sizes.</p>
+    </div>
   </div>
 
-  <div className="highlight-card">
-    <h3>100%</h3>
-    <p>Responsive Design</p>
+  <div className="feature-card">
+    <FaTachometerAlt className="feature-icon" />
+    <FaTachometerAlt className="feature-bg-icon" />
+    <div>
+      <h3>Optimized</h3>
+      <p>Clean code and optimized performance for a smooth and reliable user experience.</p>
+    </div>
   </div>
+
+</div>
 
 </section>
 
@@ -604,23 +652,26 @@ function App() {
       or want to connect about software development, I’d love to hear from you.
     </p>
 
-    <div className="contact-actions">
-      <a href="mailto:chamzbahandi@gmail.com" className="btn primary">
-        Email Me
-      </a>
+   <div className="contact-actions">
+  <a href="mailto:your@email.com" className="contact-email">
+    ✉ Email Me
+  </a>
 
-      <a href="https://github.com/YOUR_USERNAME" target="_blank" className="btn dark-btn">
-        GitHub
-      </a>
+  <div className="contact-icon-links">
+    <a href="https://github.com/YOUR_USERNAME" target="_blank" aria-label="GitHub">
+      <FaGithub />
+      <span>GitHub</span>
+    </a>
 
-      <a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank" className="btn dark-btn">
-        LinkedIn
-      </a>
+    <a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank" aria-label="LinkedIn">
+      <FaLinkedin />
+      <span>LinkedIn</span>
+    </a>
 
-      <a href="/resume.pdf" className="btn secondary-green" download>
-        Download Résumé
-      </a>
-    </div>
+  </div>
+</div>
+
+
   </div>
 </section>
 
