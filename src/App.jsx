@@ -11,6 +11,7 @@ import {
   FaLock,
   FaBell,
   FaMoon,
+  FaSun, 
   FaChartBar,
   FaBars,
   FaTimes,
@@ -88,6 +89,24 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  //DARK/LIGHT TOGGLE//
+
+  const [theme, setTheme] = useState(
+  localStorage.getItem("theme") || "light"
+);
+
+useEffect(() => {
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+}, [theme]);
+
+const toggleTheme = () => {
+  setTheme(theme === "light" ? "dark" : "light");
+};
+
+
+  //////////////////
+
   useEffect(() => {
   if (menuOpen) {
     document.body.style.overflow = "hidden";
@@ -115,6 +134,7 @@ function App() {
       )}
 
      <nav className="navbar"> 
+      <div className="top-controls">
  <button className="mobile-menu-btn" onClick={() => setMenuOpen(true)}>
     <FaBars />
   </button>
@@ -123,6 +143,7 @@ function App() {
     <div className="nav-logo">RP</div>
   </a>
 
+<div className="nav-right">
   <div className="nav-links">
     <a className={activeSection === "home" ? "active" : ""} href="#home">Home</a>
     <a className={activeSection === "about" ? "active" : ""} href="#about">About</a>
@@ -131,9 +152,24 @@ function App() {
     <a className={activeSection === "contact" ? "active" : ""} href="#contact">Contact</a>
   </div>
 
+  <div className="theme-switch">
+
+  <label className="switch">
+    <input
+      type="checkbox"
+      checked={theme === "dark"}
+      onChange={toggleTheme}
+    />
+    <span className="slider"></span>
+  </label>
+</div>
+
+</div>
+
+</div>
 </nav>
 
-<div className={`mobile-glass-menu ${menuOpen ? "open" : ""}`}>
+<aside className={`mobile-glass-menu ${menuOpen ? "open" : ""}`}>
   <button className="menu-close" onClick={() => setMenuOpen(false)}>
     <FaTimes />
   </button>
@@ -156,7 +192,11 @@ function App() {
     <a href="https://github.com/YOUR_USERNAME" target="_blank"><FaGithub /> GitHub</a>
     <a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank"><FaLinkedin /> LinkedIn</a>
   </div>
-</div>
+</aside>
+
+<div className={`app-container ${menuOpen ? "menu-open" : ""}`}>
+
+
 
      <section id="home" className="hero">
     <div className="hero-blobs">
@@ -674,6 +714,8 @@ function App() {
 
   </div>
 </section>
+
+</div>
 
 <footer>
   <p>
