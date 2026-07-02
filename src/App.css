@@ -130,7 +130,7 @@ body {
   inset: 12px;
   left: 0;
   max-width: 430px;
-  height: 99dvh;
+  height: 97.5dvh;
   z-index: 2000;
   overflow-y: auto;
   padding: 25px;
