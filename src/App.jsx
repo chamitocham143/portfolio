@@ -9,6 +9,8 @@ import {
   FaPalette,
   FaLightbulb,
   FaLock,
+  FaChartLine,
+  FaSyncAlt,
   FaBell,
   FaMoon,
   FaSun, 
@@ -98,6 +100,60 @@ useEffect(() => {
 const toggleTheme = () => {
   setTheme(theme === "light" ? "dark" : "light");
 };
+
+const bantayScreenshots = {
+  light: [
+    
+    { title: "Login", 
+      src: "/bantay-login-light.png",
+      description: "Secure authentication with Firebase.",
+      icon: <FaLock />,
+    },
+
+    { title: "Dashboard", 
+      src: "/bantay-dashboard-light.png",
+      description: "Financial overview with real-time summaries.",
+      icon: <FaChartLine />,
+    },
+      
+    { title: "Recurring", 
+      src: "/bantay-recurring-light.png",
+      description: "Manage and track recurring expenses.",
+      icon: <FaSyncAlt />,
+    },
+    { title: "Notifications", 
+      src: "/bantay-notifications-light.png",
+      description: "Smart reminders for upcoming due payments.",
+    icon: <FaBell />,
+    },
+  ],
+  dark: [
+    { title: "Login", 
+      src: "/bantay-login-dark.png",
+      description: "Secure authentication with Firebase.",
+      icon: <FaLock />,
+    },
+
+    { title: "Dashboard", 
+      src: "/bantay-dashboard-dark.png",
+      description: "Financial overview with real-time summaries.",
+      icon: <FaChartLine />,
+    },
+      
+    { title: "Recurring", 
+      src: "/bantay-recurring-dark.png",
+      description: "Manage and track recurring expenses.",
+      icon: <FaSyncAlt />,
+    },
+    { title: "Notifications", 
+      src: "/bantay-notifications-dark.png",
+      description: "Smart reminders for upcoming due payments.",
+    icon: <FaBell />,
+    },
+  ],
+};
+
+const activeScreenshots = bantayScreenshots[theme];
 
 //*************************** */
 
@@ -576,7 +632,30 @@ return (
 </div>
 
 </section>
+<div className="screenshot-gallery reveal">
+  {activeScreenshots.map((shot) => (
+    <div className="gallery-card" key={shot.src}>
 
+      <img src={shot.src} alt={shot.title} />
+
+      <div className="gallery-info">
+
+        <div className="gallery-icon">
+          {shot.icon}
+        </div>
+
+        <div>
+          <h3>{shot.title}</h3>
+          <p>{shot.description}</p>
+        </div>
+
+      </div>
+
+    </div>
+  ))}
+</div>
+
+{/* 
 <div className="screenshot-gallery reveal">
   <div className="gallery-card">
     <img src="/bantay-login.png" alt="Bantay Budget login screen" />
@@ -599,7 +678,7 @@ return (
   </div>
 </div>
 
-
+*/}
 
 <section className="section projects-list-section">
   <p className="section-kicker">More Work</p>
