@@ -43,6 +43,9 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
+
+     if (isLoading) return;
+
     const revealElements = document.querySelectorAll(".reveal");
 
     const observer = new IntersectionObserver(
@@ -79,15 +82,7 @@ function App() {
       observer.disconnect();
       sectionObserver.disconnect();
     };
-  }, []);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1200);
-
-    return () => clearTimeout(timer);
-  }, []);
+  }, [isLoading]);
 
   //DARK/LIGHT TOGGLE//
 
@@ -104,8 +99,7 @@ const toggleTheme = () => {
   setTheme(theme === "light" ? "dark" : "light");
 };
 
-
-  //////////////////
+//*************************** */
 
   useEffect(() => {
   if (menuOpen) {
@@ -122,16 +116,31 @@ const toggleTheme = () => {
   };
 }, [menuOpen]);
 
+////////SPLASH SCREEN//////////
+
+ useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1200);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+/////////////////////////////////
+if (isLoading) {
   return (
-    <main>
-      {isLoading && (
-        <div className="loader-screen">
-          <div className="loader-logo">RP</div>
-          <h1>Reycham Pana</h1>
-          <p>Web Applications Developer</p>
-          <div className="loader-line"></div>
-        </div>
-      )}
+    <div className="loader-screen">
+      <div className="loader-logo">RP</div>
+      <h1>Reycham Pana</h1>
+      <p>Web Applications Developer</p>
+      <div className="loader-line"></div>
+    </div>
+  );
+}
+
+return (
+   <main>
+      
 
      <nav className="navbar"> 
       <div className="top-controls">
@@ -728,7 +737,11 @@ const toggleTheme = () => {
 </footer>
       
     </main>
-  );
+);
+
+ 
+   
+  ;
 }
 
 export default App;
