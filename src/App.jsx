@@ -655,32 +655,8 @@ return (
   ))}
 </div>
 
-{/* 
-<div className="screenshot-gallery reveal">
-  <div className="gallery-card">
-    <img src="/bantay-login.png" alt="Bantay Budget login screen" />
-    <span>Login</span>
-  </div>
 
-  <div className="gallery-card">
-    <img src="/bantay-dashboard-light.png" alt="Bantay Budget light dashboard" />
-    <span>Light Dashboard</span>
-  </div>
-
-  <div className="gallery-card">
-    <img src="/bantay-recurring.png" alt="Bantay Budget recurring expenses" />
-    <span>Recurring</span>
-  </div>
-
-  <div className="gallery-card">
-    <img src="/bantay-notifications.png" alt="Bantay Budget notifications" />
-    <span>Notifications</span>
-  </div>
-</div>
-
-*/}
-
-<section className="section projects-list-section">
+<section className="section projects-list-section reveal">
   <p className="section-kicker">More Work</p>
 
   <h2>Featured Projects</h2>
@@ -739,7 +715,7 @@ return (
 </section>
 
 
-      <section id="skills" className="section">
+      <section id="skills" className="section reveal">
         <h2>Skills</h2>
 
         <div className="skills">
@@ -756,7 +732,7 @@ return (
         </div>
       </section>
 
-      <section className="section">
+      <section className="section reveal">
         <h2>Experience</h2>
 
         <div className="card">
@@ -769,7 +745,7 @@ return (
         </div>
       </section>
 
-      <section id="contact" className="section contact-section">
+      <section id="contact" className="section contact-section reveal">
   <div className="contact-card">
     <p className="section-kicker">Contact</p>
 

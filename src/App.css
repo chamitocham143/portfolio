@@ -1976,7 +1976,7 @@ color: var(--green);
 
 .loader-screen h1 {
   margin: 0;
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.6rem, 5vw, 3rem);
 }
 
 .loader-screen p {
@@ -2141,8 +2141,8 @@ color: var(--green);
 
 [data-theme="light"] .loader-screen h1{
 
-     margin: 0;
-    font-size: clamp(2rem, 5vw, 3rem);
+    margin: 0;
+    font-size: clamp(1.6rem, 5vw, 3rem);
     color:#005346;
     font-weight:600;
     letter-spacing:-1px;
