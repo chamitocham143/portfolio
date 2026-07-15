@@ -95,6 +95,10 @@
   color:#F8FAFC;
 }
 
+[data-theme="dark"] .loader-screen h1{
+  color:#F8FAFC;
+}
+
 [data-theme="dark"] .about-detail p{
   color:#cbd5e1;
 }
@@ -1850,10 +1854,14 @@ color: var(--green);
 }
 
 .delay-2 {
-  animation-delay: 0.3s;
+  animation-delay: 0.25s;
 }
 
 .delay-3 {
+  animation-delay: 0.30s;
+}
+
+.delay-4{
   animation-delay: 0.45s;
 }
 
@@ -1976,6 +1984,7 @@ color: var(--green);
 
 .loader-screen h1 {
   margin: 0;
+  color:#020d0a;
   font-size: clamp(1.6rem, 5vw, 3rem);
 }
 

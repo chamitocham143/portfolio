@@ -188,8 +188,7 @@ if (isLoading) {
     <div className="loader-screen">
       <div className="loader-logo">RP</div>
       <h1>Reycham Pana</h1>
-      <p>Web Applications Developer</p>
-      <div className="loader-line"></div>
+      <div className="loader-line"></div> 
     </div>
   );
 }
@@ -284,11 +283,11 @@ return (
           practical apps that solve real problems.
       </p>
       
-   <p className="availability">
+   <p className="availability fade-up delay-3">
   🟢 Available for web application projects
 </p>
 
-<div className="buttons fade-up delay-3">
+<div className="buttons fade-up delay-4">
   <a href="#projects" className="btn primary">View My Work</a>
   <a href="/resume.pdf" className="btn secondary" download>
     Download Resume
